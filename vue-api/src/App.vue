@@ -1,13 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
     <h1>restaurants and violations :)</h1>
   </header>
-
+  <router-link to="/ApiData">APIIIII</router-link>
   <RouterView />
 </template>
 
