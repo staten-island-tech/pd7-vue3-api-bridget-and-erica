@@ -1,8 +1,13 @@
-<script setup>
+<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+export default {
+
+}
 </script>
 
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
+<style lang="scss" scoped></style>
