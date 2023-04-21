@@ -10,14 +10,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
-    },
-    {
       path: '/ApiData',
       name: 'ApiData',
       component: () => import('../views/ApiData.vue')
+    },
+    {
+      path: '/BarChart',
+      name: 'BarChart',
+      component: () => import('../views/BarChart.vue')
     }
   ]
 })
