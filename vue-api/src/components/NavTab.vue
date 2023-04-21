@@ -3,6 +3,7 @@
         <nav>
             <RouterLink to="/ApiData">APIIIII</RouterLink>
             <RouterLink to="/BarChart">Bar Chart</RouterLink>
+            <RouterLink to="/PieChart">Pie Chart</RouterLink>
         </nav>
         <RouterView/>
     </div>
