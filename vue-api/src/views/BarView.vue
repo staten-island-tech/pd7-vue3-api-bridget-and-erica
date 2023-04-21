@@ -1,6 +1,6 @@
 <template>
     <div>
-<h1>hi! this is the barchart file</h1>
+        <h1>bar view</h1>
     </div>
 </template>
 
@@ -10,4 +10,4 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

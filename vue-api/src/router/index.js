@@ -15,9 +15,9 @@ const router = createRouter({
       component: () => import('../views/ApiData.vue')
     },
     {
-      path: '/BarChart',
-      name: 'BarChart',
-      component: () => import('../views/BarChart.vue')
+      path: '/BarView',
+      name: 'Barview',
+      component: () => import('../views/BarView.vue')
     },
     {
       path: '/PieChart',
