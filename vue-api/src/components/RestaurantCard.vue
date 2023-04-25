@@ -2,7 +2,7 @@
     <div class="restaurant__card">
         <h1>{{ name }}</h1>
         <h2>{{ building }} {{ street }}</h2>
-        <p>{{ grade }}</p>
+        <p>Grade: {{ grade }}</p>
     </div>
 </template>
   
@@ -21,16 +21,36 @@ export default {
   
 <style scoped>
 /* card styles */
+h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    text-transform: ;
+}
+
+h2 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+p {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+
+}
+
 .restaurant__card {
+    font-family: 'Noto Sans', sans-serif;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-
     width: 18vw;
-
-    outline: 1px black solid;
-    margin: 5px 0;
-    padding: 5px;
+    margin: 1rem;
+    padding: 2rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
 }
 </style>
