@@ -1,5 +1,5 @@
 <template>
-  <Bar id="bar-chart" :chartOptions="chartOptions" :chartData="chartData" />
+  <Bar id="barChart" :options="chartOptions" :data="chartData" />
 </template>
   
 <script>
@@ -11,15 +11,20 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 export default {
   name: 'BarChart',
   components: { Bar },
-  data() {
-    return {
-      chartData: {
-        labels: [], 
-        datasets: [] 
-      },
-      chartOptions: {
-        responsive: true
-      }
+  props: {
+    chartData: {
+      type: Object,
+      required: true
+    },
+    chartOptions: {
+      type: Object,
+      default: () => ({
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+      })
     }
   }
 }
