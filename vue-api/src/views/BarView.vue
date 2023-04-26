@@ -45,6 +45,7 @@ export default {
       //push the data into datasets; this gives us what goes into the chart!
       this.chartData.datasets.push({
         data: grade,
+        label: '# of restaurants',
       })
 
       this.loaded = true
