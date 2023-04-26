@@ -32,7 +32,6 @@ export default {
       const gradeData = await response.json() //gradesData is the json's response
       let labels = ['A', 'B', 'C', 'Z', 'N']; //label for the grades descriptions
       let grade = [] //make an array to house how many of each grades type exists
-      
 
       labels.forEach((label) => {
         //for each label, push it into labels array that is in chartData 
