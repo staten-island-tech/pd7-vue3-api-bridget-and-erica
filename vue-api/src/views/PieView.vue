@@ -30,11 +30,10 @@ export default {
         'https://data.cityofnewyork.us/resource/43nn-pn8j.json?$select=cuisine_description&$limit=200000'
       )
       const cuisineData = await response.json() //cusineData is the json's response
-      let labels = ['(Other)', 'American', 'Chinese', 'Pizza', 'Coffee/Tea', 'Latin American', 'Mexican', 'Italian', 'Caribbean',
+      let labels = ['American', 'Chinese', 'Pizza', 'Coffee/Tea', 'Latin American', 'Mexican', 'Italian', 'Caribbean',
         'Bakery Products/Desserts', 'Japanese', 'Spanish', 'Chicken']; //label for the cuisine descriptions
       let cuisine = [] //make an array to house how many of each cuisine type exists
       let backgroundColor = [ //array for the colours of each section of the pie chart
-        "#42140A",
         "#5B1F14",
         "#78281F",
         "#943126",
