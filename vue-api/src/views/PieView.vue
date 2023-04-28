@@ -34,18 +34,18 @@ export default {
         'Bakery Products/Desserts', 'Japanese', 'Spanish', 'Chicken']; //label for the cuisine descriptions
       let cuisine = [] //make an array to house how many of each cuisine type exists
       let backgroundColor = [ //array for the colours of each section of the pie chart
-        "#5B1F14",
-        "#78281F",
-        "#943126",
-        "#B03A2E",
-        "#CB4335",
-        "#EC7063",
-        "#F1948A",
-        "#F5B7B1",
-        "#DDB0B1",
-        "#E9C0C0",
-        "#F9EBEA",
-        "#F6E8E8"
+        "#713f47", //12
+        "#764040", //11
+        "#8e4d4d", //10
+        "#a2585a", //9
+        "#b76466", //8
+        "#c76e70", //7
+        "#d08081", //6
+        "#d69090", //5
+        "#e3a3a4", //4
+        "#f5c1c1", //3
+        "#ffdedf", //2
+        "#ffefef" //1
       ]
       labels.forEach((label) => {
         //for each label, push it into labels array that is in chartData (ref to PieChart.vue)
@@ -63,7 +63,7 @@ export default {
       })
 
       //if data is loaded, make it true so graph will display (async and sync!); boolean
-      //"The problem with this approach is that Chart.js tries to render your chart and access the chart data synchronously, 
+      //"The problem with this approach is that Chart.js tries to render your chart and access the chart data synchronously,
       //so your chart mounts before the API data arrives.
       //To prevent this, a simple v-if is the best solution."—vue-chartjs docs
       this.loaded = true
