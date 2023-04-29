@@ -28,7 +28,7 @@ nav {
 
 nav a {
   font-size: 1.2rem;
-  color: #c3a394;
+  color: #8e4d4d;
   display: flex;
   justify-content: center;
   padding: 0 1rem;

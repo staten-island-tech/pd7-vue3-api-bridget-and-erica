@@ -1,6 +1,15 @@
 <template>
   <div>
-    <h1>pie view</h1>
+    <h1>Cuisines by the Boroughs</h1>
+    <!--creates a dropdown menu to sort cuisines by boroughs -->
+    <select id="filterSelect" @click="filterSelect">
+      <option value="All">All Boroughs</option>
+      <option value="Manhattan">Manhattan</option>
+      <option value="Bronx">Bronx</option>
+      <option value="Brooklyn">Brooklyn</option>
+      <option value="Queens">Queens</option>
+      <option value="Staten Island">Staten Island</option>
+    </select>
     <div class="pieChart">
       <PieChart v-if="loaded" :chartData="chartData" :chartOptions="chartOptions" />
     </div>
@@ -80,5 +89,12 @@ export default {
 <style scoped>
 .pieChart {
   width: 40rem;
+}
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color:#8e4d4d;
+    font-size: 4rem;
+    text-align: center;
 }
 </style>
