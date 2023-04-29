@@ -24,7 +24,6 @@ export default {
 h1 {
     font-family: 'Crimson Text', serif;
     font-size: 2rem;
-    text-transform: ;
 }
 
 h2 {
