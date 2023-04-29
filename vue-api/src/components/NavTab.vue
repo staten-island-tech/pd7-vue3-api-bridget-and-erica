@@ -3,7 +3,7 @@
         <nav>
             <RouterLink to="/ApiData">Data</RouterLink>
             <RouterLink to="/BarView">Bar Chart</RouterLink>
-            <RouterLink to="/PieChart">Pie Chart</RouterLink>
+            <RouterLink to="/PieView">Pie Chart</RouterLink>
         </nav>
         <RouterView/>
     </div>

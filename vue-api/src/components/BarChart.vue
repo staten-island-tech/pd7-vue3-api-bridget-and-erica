@@ -1,16 +1,30 @@
 <template>
-  <Bar id="barChart" :options="chartOptions" :data="chartData" />
+  <!-- bar graph component -->
+  <Bar id="BarChart" :options="chartOptions" :data="chartData" />
 </template>
-  
-<script>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
+<script>
+// imports for the chart stuff
+import { Bar } from 'vue-chartjs'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js'
+
+// register the chart stuff (idk thats what the docs said)
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
+  // just the name and component
   name: 'BarChart',
   components: { Bar },
+
+  // props for the chart data and chart options (w/ default settings)
   props: {
     chartData: {
       type: Object,
