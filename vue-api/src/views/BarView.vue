@@ -1,6 +1,22 @@
 <template>
-  <div>
-    <h1>bar view</h1>
+  <div class="container">
+    <h1>Restaurant Ratings in Relation to Cusine Type</h1>
+    <!--creates a dropdown menu to sort grades by cuisine type -->
+    <select id="filterSelect" @click="filterSelect">
+      <option value="All">All Cuisine Types</option>
+      <option value="American">American</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Pizza">Pizza</option>
+      <option value="Coffee/Tea">Coffee/Tea</option>
+      <option value="Latin American">Latin American</option>
+      <option value="Mexican">Mexican</option>
+      <option value="Italian">Italian</option>
+      <option value="Caribbean">Caribbean</option>
+      <option value="Bakery Products/Desserts">Bakery Products/Desserts</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Spanish">Spanish</option>
+      <option value="Chicken">Chicken</option>
+    </select>
     <div class="barChart">
       <BarChart v-if="loaded" :chartData="chartData" :chartOptions="chartOptions" />
     </div>
@@ -45,6 +61,7 @@ export default {
       //push the data into datasets; this gives us what goes into the chart!
       this.chartData.datasets.push({
         data: grade,
+        backgroundColor: '#8e4d4d',
         label: '# of restaurants',
       })
 
@@ -60,7 +77,27 @@ export default {
 </script>
 
 <style scoped>
-.barChart {
-  width: 40rem;
+.container{
+display: flex;
+flex-direction: column;
+justify-items: center;
+align-items: center;
 }
+.barChart {
+  width: 80rem;
+}
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color:#8e4d4d;
+    font-size: 4rem;
+    text-align: center;
+}
+select option {
+  background-color: #f2f2f2;
+  color: black;
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+}
+
 </style>
