@@ -68,7 +68,7 @@ export default {
             }
           ]
         }
-        
+
         this.loaded = true
       } catch (error) {
         //if error then display error (tell me what I did wrong!!)
@@ -76,40 +76,44 @@ export default {
       }
     },
     filterSelect: async function () {
-      const selection = document.getElementById('filterSelect').value
-      if (selection == 'All') {
-        this.allSelect()
-      } else {
-        const gradeCuisineResponse = await fetch(
-          `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$select=grade,cuisine_description&$limit=200000&$where=grade%20IS%20NOT%20NULL%20AND%20cuisine_description%20IS%20NOT%20NULL%20AND%20cuisine_description=%27${selection}%27`
-        )
-        const gradeCuisineData = await gradeCuisineResponse.json()
-        let labels = ['A', 'B', 'C', 'Z', 'N']
+      try {
+        const selection = document.getElementById('filterSelect').value
+        if (selection == 'All') {
+          this.allSelect()
+        } else {
+          const gradeCuisineResponse = await fetch(
+            `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$select=grade,cuisine_description&$limit=200000&$where=grade%20IS%20NOT%20NULL%20AND%20cuisine_description%20IS%20NOT%20NULL%20AND%20cuisine_description=%27${selection}%27`
+          )
+          const gradeCuisineData = await gradeCuisineResponse.json()
+          let labels = ['A', 'B', 'C', 'Z', 'N']
 
-        let filteredGrades = []
+          let filteredGrades = []
 
-        labels.forEach((label) => {
-          filteredGrades.push(gradeCuisineData.filter((rest) => rest.grade == label).length)
-        })
-        
-        this.chartData = {
-          labels: labels,
-          datasets: [
-            {
-              data: filteredGrades,
-              backgroundColor: '#8e4d4d',
-              label: '# of restaurants'
-            }
-          ]
+          labels.forEach((label) => {
+            filteredGrades.push(gradeCuisineData.filter((rest) => rest.grade == label).length)
+          })
+
+          this.chartData = {
+            labels: labels,
+            datasets: [
+              {
+                data: filteredGrades,
+                backgroundColor: '#8e4d4d',
+                label: '# of restaurants'
+              }
+            ]
+          }
+
+          this.loaded = true
         }
-
-        this.loaded = true
+      } catch (error) {
+        console.error(error)
       }
-    }
-  },
+    },
 
-  async mounted() {
-    this.allSelect()
+    async mounted() {
+      this.allSelect()
+    }
   }
 }
 </script>
@@ -121,9 +125,11 @@ export default {
   justify-items: center;
   align-items: center;
 }
+
 .barChart {
   width: 80rem;
 }
+
 h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -131,10 +137,10 @@ h1 {
   font-size: 4rem;
   text-align: center;
 }
+
 select option {
   background-color: #f2f2f2;
   color: black;
   font-size: 1rem;
   padding: 0.5rem 0.8rem;
-}
-</style>
+}</style>

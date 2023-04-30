@@ -96,63 +96,64 @@ export default {
     },
     // if option is selected, filter the data by borough
     async filterSelect() {
-      const selection = document.getElementById('filterSelect').value
-      if (selection == 'All') {
-        this.allSelect()
-      }
-      console.log(selection)
-      const boroughCuisineResponse = await fetch(
-        `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$select=cuisine_description,boro&$limit=200000&$where=cuisine_description IS NOT NULL AND boro='${selection}'`
-      )
-      const boroughCuisineData = await boroughCuisineResponse.json()
-      let labels = [
-        'American',
-        'Chinese',
-        'Pizza',
-        'Coffee/Tea',
-        'Latin American',
-        'Mexican',
-        'Italian',
-        'Caribbean',
-        'Bakery Products/Desserts',
-        'Japanese',
-        'Spanish',
-        'Chicken'
-      ]
-      let backgroundColor = [
-        '#713f47',
-        '#764040',
-        '#8e4d4d',
-        '#a2585a',
-        '#b76466',
-        '#c76e70',
-        '#d08081',
-        '#d69090',
-        '#e3a3a4',
-        '#f5c1c1',
-        '#ffdedf',
-        '#ffefef'
-      ]
-      let filteredBoroughs = []
-      labels.forEach((label) => {
-        filteredBoroughs.push(
-          boroughCuisineData.filter((rest) => rest.cuisine_description == label).length
+      try {
+        const selection = document.getElementById('filterSelect').value //pulls the value of the user input
+        if (selection == 'All') { //parse data from all cusines if the selection is all
+          this.allSelect()
+        }
+        console.log(selection)
+        const boroughCuisineResponse = await fetch( //grabbing new url that houses boroughs and cusine types
+          `https://data.cityofnewyork.us/resource/43nn-pn8j.json?$select=cuisine_description,boro&$limit=200000&$where=cuisine_description IS NOT NULL AND boro='${selection}'`
         )
-      })
-      this.chartData = {
-        labels: labels,
-        datasets: [
-          {
-            data: filteredBoroughs,
-            backgroundColor: backgroundColor
-          }
+        const boroughCuisineData = await boroughCuisineResponse.json()
+        let labels = [
+          'American',
+          'Chinese',
+          'Pizza',
+          'Coffee/Tea',
+          'Latin American',
+          'Mexican',
+          'Italian',
+          'Caribbean',
+          'Bakery Products/Desserts',
+          'Japanese',
+          'Spanish',
+          'Chicken'
         ]
+        let backgroundColor = [
+          '#713f47',
+          '#764040',
+          '#8e4d4d',
+          '#a2585a',
+          '#b76466',
+          '#c76e70',
+          '#d08081',
+          '#d69090',
+          '#e3a3a4',
+          '#f5c1c1',
+          '#ffdedf',
+          '#ffefef'
+        ]
+        let filteredBoroughs = []
+        labels.forEach((label) => { //finding cusisines that match the label
+          filteredBoroughs.push(
+            boroughCuisineData.filter((rest) => rest.cuisine_description == label).length
+          )
+        })
+        this.chartData = { //data passing in
+          labels: labels,
+          datasets: [
+            {
+              data: filteredBoroughs,
+              backgroundColor: backgroundColor
+            }
+          ]
+        }
+        this.loaded = true
+      } catch (error) {
+        console.error(error)
       }
-      this.loaded = true
-    }
-  },
-  async mounted() {
-    this.allSelect()
+    },
   }
 }
 </script>
@@ -164,6 +165,7 @@ export default {
   justify-items: center;
   align-items: center;
 }
+
 .pieChart {
   width: 40rem;
 }
