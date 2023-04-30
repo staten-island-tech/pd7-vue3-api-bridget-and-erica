@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Cuisines by the Boroughs</h1>
     <!--creates a dropdown menu to sort cuisines by boroughs -->
     <select id="filterSelect" @click="filterSelect">
@@ -33,14 +33,14 @@ export default {
     }
   },
   methods: {
-    async allSelect() {
+    async allSelect() { //async function handles the selection of all boroughs
       try {
-        //get api json, this endpoint makes it so that it grabs the cuisine description and limits the entries to 200k
+        //get api json
         const response = await fetch(
           'https://data.cityofnewyork.us/resource/43nn-pn8j.json?$select=cuisine_description,boro&$limit=200000&$where=cuisine_description%20IS%20NOT%20NULL%20AND%20boro%20IS%20NOT%20NULL'
         )
         const cuisineData = await response.json() //cusineData is the json's response
-        let labels = [
+        let labels = [ //label for the cuisine descriptions
           'American',
           'Chinese',
           'Pizza',
@@ -53,7 +53,7 @@ export default {
           'Japanese',
           'Spanish',
           'Chicken'
-        ] //label for the cuisine descriptions
+        ]
         let cuisine = [] //make an array to house how many of each cuisine type exists
         let backgroundColor = [
           //array for the colours of each section of the pie chart
@@ -75,7 +75,6 @@ export default {
           //of many of each cuisine type exists
           cuisine.push(cuisineData.filter((rest) => rest.cuisine_description == label).length)
         })
-
         this.chartData = {
           labels: labels,
           datasets: [
@@ -159,6 +158,12 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
 .pieChart {
   width: 40rem;
 }
@@ -169,5 +174,6 @@ h1 {
   color: #8e4d4d;
   font-size: 4rem;
   text-align: center;
+  margin-bottom: 1rem;
 }
 </style>
