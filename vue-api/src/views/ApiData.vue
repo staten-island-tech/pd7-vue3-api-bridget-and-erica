@@ -2,7 +2,7 @@
     <!-- container for restaurant cards -->
     <div class="container__restaurant-card">
         <!-- restaurant cards -->
-        <restaurantCard v-for="restaurant in restaurant" :key="restaurant.camis" :restaurant="restaurant"
+        <RestaurantCard v-for="restaurant in restaurant" :key="restaurant.camis" :restaurant="restaurant"
             :name="restaurant.dba" :grade="restaurant.grade" :street="restaurant.street" :building="restaurant.building" />
     </div>
 </template>
@@ -10,7 +10,7 @@
 <script setup>
 //imports vue reactivity API's
 import { ref, onMounted } from 'vue'
-import restaurantCard from '../components/restaurantCard.vue'
+import RestaurantCard from '../components/RestaurantCard.vue'
 
 //makes restaurant change to following data
 const restaurant = ref('')
