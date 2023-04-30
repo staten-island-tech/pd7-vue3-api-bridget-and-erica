@@ -8,7 +8,7 @@
   
 <script>
 export default {
-    name: 'restaurantCard',
+    name: 'RestaurantCard',
     props: {
         restaurant: Object,
         name: String,

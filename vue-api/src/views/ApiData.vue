@@ -10,7 +10,7 @@
 <script setup>
 //imports vue reactivity API's
 import { ref, onMounted } from 'vue'
-import RestaurantCard from '../components/RestaurantCard.vue'
+import restaurantCard from '../components/RestaurantCard.vue'
 
 //makes restaurant change to following data
 const restaurant = ref('')
