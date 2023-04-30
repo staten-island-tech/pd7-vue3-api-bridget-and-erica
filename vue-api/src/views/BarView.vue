@@ -110,11 +110,10 @@ export default {
         console.error(error)
       }
     },
-
-    async mounted() {
+  },
+  async mounted() {
       this.allSelect()
     }
-  }
 }
 </script>
 

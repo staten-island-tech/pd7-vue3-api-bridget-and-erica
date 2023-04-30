@@ -154,7 +154,10 @@ export default {
         console.error(error)
       }
     },
-  }
+  },
+  async mounted() {
+      this.allSelect()
+    }
 }
 </script>
 
